@@ -11,7 +11,7 @@ import Layout from '@/layout'
 // import chartsRouter from './modules/charts'
 // import tableRouter from './modules/table'
 // import nestedRouter from './modules/nested'
-import toolRouter from './modules/tool'
+// import toolRouter from './modules/tool'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -50,6 +50,11 @@ export const constantRoutes = [
         component: () => import('@/views/redirect/index')
       }
     ]
+  },
+  {
+    path: '/extdashboard',
+    component: () => import('@/views/dashboard/admin/index'),
+    hidden: true
   },
   {
     path: '/login',
@@ -164,42 +169,43 @@ export const asyncRoutes = [
         name: 'JobInfo',
         component: () => import('@/views/datax/jobInfo/index'),
         meta: { title: '任务管理', icon: 'task-cfg' }
-      },
-      {
-        path: 'jsonBuild',
-        name: 'JsonBuild',
-        component: () => import('@/views/datax/json-build/index'),
-        meta: { title: '任务构建', icon: 'guide', noCache: false }
-      },
-      {
-        path: 'jsonBuildBatch',
-        name: 'JsonBuildBatch',
-        component: () => import('@/views/datax/json-build-batch/index'),
-        meta: { title: '任务批量构建', icon: 'batch-create', noCache: false }
-      },
-      {
-        path: 'jobTemplate',
-        name: 'JobTemplate',
-        component: () => import('@/views/datax/jobTemplate/index'),
-        meta: { title: 'DataX任务模板', icon: 'task-tmp' }
       }
+      // ,
+      // {
+      //   path: 'jsonBuild',
+      //   name: 'JsonBuild',
+      //   component: () => import('@/views/datax/json-build/index'),
+      //   meta: { title: '任务构建', icon: 'guide', noCache: false }
+      // },
+      // {
+      //   path: 'jsonBuildBatch',
+      //   name: 'JsonBuildBatch',
+      //   component: () => import('@/views/datax/json-build-batch/index'),
+      //   meta: { title: '任务批量构建', icon: 'batch-create', noCache: false }
+      // },
+      // {
+      //   path: 'jobTemplate',
+      //   name: 'JobTemplate',
+      //   component: () => import('@/views/datax/jobTemplate/index'),
+      //   meta: { title: 'DataX任务模板', icon: 'task-tmp' }
+      // }
     ]
   },
-  {
-    path: '/datax/datasource',
-    component: Layout,
-    redirect: '/datax/jdbc-datasource',
-    name: 'datasource',
-    meta: { title: '数据源管理', icon: 'cfg-datasouce' },
-    children: [
-      {
-        path: 'jdbcDatasource',
-        name: 'JdbcDatasource',
-        component: () => import('@/views/datax/jdbc-datasource/index'),
-        meta: { title: '数据源管理', icon: 'cfg-datasouce' }
-      }
-    ]
-  },
+  // {
+  //   path: '/datax/datasource',
+  //   component: Layout,
+  //   redirect: '/datax/jdbc-datasource',
+  //   name: 'datasource',
+  //   meta: { title: '数据源管理', icon: 'cfg-datasouce' },
+  //   children: [
+  //     {
+  //       path: 'jdbcDatasource',
+  //       name: 'JdbcDatasource',
+  //       component: () => import('@/views/datax/jdbc-datasource/index'),
+  //       meta: { title: '数据源管理', icon: 'cfg-datasouce' }
+  //     }
+  //   ]
+  // },
   {
     path: '/datax/log',
     component: Layout,
@@ -260,7 +266,7 @@ export const asyncRoutes = [
       }
     ]
   },
-  toolRouter,
+  // toolRouter,
   { path: '*', redirect: '/404', hidden: true }
 ]
 

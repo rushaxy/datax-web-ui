@@ -51,10 +51,15 @@ export default {
   },
   data() {
     return {
-      successCount: parseInt(localStorage.getItem('countSucTotal')),
-      failCount: parseInt(localStorage.getItem('countFailTotal')),
-      runningCount: parseInt(localStorage.getItem('countRunningTotal'))
+      successCount: 0,
+      failCount: 0,
+      runningCount: 0
     }
+  },
+  created() {
+    this.successCount = parseInt(localStorage.getItem('countSucTotal')),
+    this.failCount = parseInt(localStorage.getItem('countFailTotal')),
+    this.runningCount = parseInt(localStorage.getItem('countRunningTotal'))
   },
   methods: {
     handleSetLineChartData(type) {
